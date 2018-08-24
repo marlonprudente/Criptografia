@@ -37,8 +37,9 @@ public class Main {
         System.out.println("Descriptografar: " + fraseDescripto);
 
         String fraseVernam = CifraVernam.Criptografar(fraseDescripto);
-        System.out.println("Vernam: " + fraseVernam);
+        System.out.println("Vernam: " + fraseVernam);        
         System.out.println("Caractere correspondente a A (Vernam): " + AnaliseFrequencia.analisarFrequencia(fraseVernam));
+        System.out.println("Vernam Descripto: " + CifraVernam.Descriptografar(fraseVernam));
 
         String plaintext = "Howdy!";
         String ENCRYPTION_ALGORITHM = "ARCFOUR";
@@ -49,7 +50,7 @@ public class Main {
 
         byte[] ciphertextBytes = null;
         try {
-            ciphertextBytes = encrypt(plaintext, secretKey, rc4);
+            ciphertextBytes = encrypt(fraseDescripto, secretKey, rc4);
         } catch (BadPaddingException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
